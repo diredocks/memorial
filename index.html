@@ -2,71 +2,130 @@
 <html>
 
 <head>
-    <title>今天syk放假了吗？</title>
+    <title>syk今天放假了吗</title>
+    <link rel="stylesheet" type="text/css" href="./csshake-slow.css">
+
     <style>
-        h1,
-        h2,
-        h3,
-        div {
-            text-align: center;
+        @font-face {
+            font-family: "Fusion Pixel";
+            src: url("./fusion-pixel.ttf");
         }
 
-        #countdown {
-            padding-bottom: 15%;
-        }
-
-
-        .container {
+        body {
+            background-color: #eeeeee;
+            font-family: 'Fusion Pixel';
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translateX(-50%) translateY(-50%);
+            transform: translate(-50%, -50%);
         }
+
+        p {
+            display: inline;
+        }
+
+        .card {
+            background-color: #fafafa;
+            height: 554px;
+            width: 754px;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 0px 4px 8px #b5b5b5;
+        }
+
+        .card-header,
+        .card-footer {
+            height: 81px;
+            width: auto;
+            background-color: #00adb5;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-header>p {
+            color: #fafafa;
+            font-size: 45px;
+        }
+
+        .card-footer>p {
+            font-size: 36px;
+            padding: 10px;
+        }
+
+        .card-header {
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        .card-footer {
+            background-color: #f7f6f4;
+            border-radius: 0px 0px 10px 10px;
+
+        }
+
+        .countdown {
+            min-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 280px;
+            color: #222831;
+            margin-bottom: -40px;
+        }
+
+        .countdown-lable {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-top: 5px;
+        }
+
+        .website-info {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #919191;
+        }
+
     </style>
-    <script>
-        window.onload = function () {
-            // 设置纪念日的日期（年、月、日）
-            var anniversaryDate = new Date('2024-06-07');
-
-            // 每秒更新倒计时
-            setInterval(function () {
-                var currentDate = new Date();
-                var timeRemaining = anniversaryDate - currentDate;
-
-                // 计算剩余的天、小时、分钟和秒
-                var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-                var letters = '0123456789ABCDEF';
-                var color = '#';
-                var bg_color = '#';
-                for (var i = 0; i < 6; i++) {
-                    color += letters[Math.floor(Math.random() * 16)];
-                    bg_color += letters[Math.floor(Math.random() * 16)];
-                }
-
-                var elements = document.getElementsByTagName('body');
-                for (var i = 0; i < elements.length; i++) {
-                    elements[i].style.color = color;
-                    // document.body.style.backgroundColor = bg_color
-                }
-
-                // 更新倒计时显示
-                document.getElementById("countdown").innerHTML = days + "天 " + hours + "小时 "
-                    + minutes + "分钟 " + seconds + "秒";
-            }, 1000);
-        };
-
-    </script>
 </head>
 
-<body class="container">
-    <h1>深切悼念</br>In Memory of</h1>
-    <img id="friendPhoto" src="https://s1.ax1x.com/2023/07/11/pCWVCv9.jpg" alt="朋友照片">
-    <h2>距离2024年高考还有</h2>
-    <h1 id="countdown"></h1>
+<body>
+    <div class="card shake-slow">
+        <div class="card-header">
+            <p>距离二零二四高考还有</p>
+        </div>
+        <div class="countdown">
+            <p id="countdown-num">365</p>
+        </div>
+        <p class="countdown-lable">Days</p>
+        <div class="card-footer">
+            <p>目标日</p>
+            <p style="color: #fdb750">☼</p>
+            <p>2024/06/07</p>
+        </div>
+    </div>
+    <p class="website-info">https://jailne-su.github.io/memorial/<br>syk今天放假了吗？</p>
+    <script>
+        // 目标日期（格式：年-月-日）
+        var targetDate = '2024-06-07';
+
+        function updateCountdown() {
+            var now = new Date();
+            var target = new Date(targetDate);
+
+            var daysRemaining = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+
+            document.getElementById('countdown-num').innerHTML = daysRemaining;
+        }
+
+        updateCountdown()
+    </script>
 </body>
 
 </html>
