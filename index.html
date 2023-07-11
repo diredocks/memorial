@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>今天syk放假了吗？</title>
+    <style>
+        h1,
+        h2,
+        h3,
+        div {
+            text-align: center;
+        }
+
+        #countdown {
+            padding-bottom: 15%;
+        }
+
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        #friendPhoto {
+            position: absolute;
+            transition: transform 0.5s ease-in-out;
+            z-index: -1;
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+
+<body class="container">
+    <h1>深切悼念</br>In Memory of</h1>
+    <img id="friendPhoto" src="friend.jpg" alt="朋友照片">
+    <h2>距离2024年高考还有</h2>
+    <h1 id="countdown"></h1>
+</body>
+
+</html>
