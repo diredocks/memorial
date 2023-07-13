@@ -8,36 +8,38 @@
 </head>
 
 <body>
-    <div class="card shake-slow">
-        <div class="card-header">
-            <p>距离二零二四高考还有</p>
+    <div class="container">
+        <div class="card shake-slow">
+            <div class="card-header">
+                <p>距离二零二四高考还有</p>
+            </div>
+            <div class="countdown">
+                <p id="countdown-num">365</p>
+            </div>
+            <p class="countdown-lable">Days</p>
+            <div class="card-footer">
+                <p>目标日</p>
+                <p style="color: #fdb750">☼</p>
+                <p>2024/06/07</p>
+            </div>
         </div>
-        <div class="countdown">
-            <p id="countdown-num">365</p>
-        </div>
-        <p class="countdown-lable">Days</p>
-        <div class="card-footer">
-            <p>目标日</p>
-            <p style="color: #fdb750">☼</p>
-            <p>2024/06/07</p>
-        </div>
+        <p class="website-info">https://jailne-su.github.io/memorial/<br>syk今天放假了吗？</p>
+        <script>
+            // 目标日期（格式：年-月-日）
+            var targetDate = '2024-06-07';
+
+            function updateCountdown() {
+                var now = new Date();
+                var target = new Date(targetDate);
+
+                var daysRemaining = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+
+                document.getElementById('countdown-num').innerHTML = daysRemaining;
+            }
+
+            updateCountdown()
+        </script>
     </div>
-    <p class="website-info">https://jailne-su.github.io/memorial/<br>syk今天放假了吗？</p>
-    <script>
-        // 目标日期（格式：年-月-日）
-        var targetDate = '2024-06-07';
-
-        function updateCountdown() {
-            var now = new Date();
-            var target = new Date(targetDate);
-
-            var daysRemaining = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
-
-            document.getElementById('countdown-num').innerHTML = daysRemaining;
-        }
-
-        updateCountdown()
-    </script>
 </body>
 
 </html>
